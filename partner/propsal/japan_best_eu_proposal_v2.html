@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Best EU限定セット展開に関するご提案</title>
+  <style>
+    :root {
+      --bg: #f6f2ea;
+      --paper: #fffdf9;
+      --ink: #1c1a17;
+      --muted: #6b645b;
+      --line: #ddd3c5;
+      --accent: #8b5e34;
+      --accent-dark: #5c3d23;
+      --soft: #efe5d6;
+      --deep: #2f251d;
+      --gold: #b58a4b;
+      --shadow: 0 14px 40px rgba(44, 31, 20, 0.08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(181, 138, 75, 0.08), transparent 28%),
+        linear-gradient(180deg, #f8f4ec 0%, #f5efe6 100%);
+      line-height: 1.85;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 54px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 24px 0 auto auto;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(181, 138, 75, 0.16), transparent 68%);
+      pointer-events: none;
+      filter: blur(4px);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(255,253,249,0.96), rgba(249,242,232,0.96));
+      border: 1px solid rgba(139, 94, 52, 0.14);
+      border-radius: 28px;
+      padding: 54px;
+      box-shadow: var(--shadow);
+      position: relative;
+      backdrop-filter: blur(6px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(139, 94, 52, 0.1);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+      letter-spacing: 0.03em;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin-bottom: 18px;
+      color: var(--deep);
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+
+    .lead {
+      display: grid;
+      grid-template-columns: 1.6fr 0.9fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .lead-text, .lead-side {
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(139, 94, 52, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .lead-side strong {
+      display: block;
+      font-size: 14px;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      background: rgba(47, 37, 29, 0.95);
+      color: #f8f3eb;
+      border-radius: 18px;
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat .label {
+      font-size: 13px;
+      color: rgba(248, 243, 235, 0.72);
+      display: block;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .stat .value {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 18px 0 18px;
+    }
+
+    .section-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 38px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 14px;
+      color: var(--deep);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 860px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      background: linear-gradient(180deg, #fffdf9 0%, #faf6ef 100%);
+    }
+
+    .panel h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .accent-box {
+      padding: 26px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(139, 94, 52, 0.08), rgba(181, 138, 75, 0.14));
+      border: 1px solid rgba(139, 94, 52, 0.14);
+    }
+
+    ul, ol {
+      margin: 12px 0 0 1.25em;
+      padding: 0;
+    }
+
+    li + li { margin-top: 8px; }
+
+    .comparison {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 18px 16px;
+      border-bottom: 1px solid #e8dfd1;
+      vertical-align: top;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    th {
+      background: #f7efe4;
+      color: var(--deep);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .good { color: #3d6f40; font-weight: 700; }
+    .mid { color: #8a6c2e; font-weight: 700; }
+    .bad { color: #994444; font-weight: 700; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      position: relative;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 18px;
+      padding: 20px 18px;
+      min-height: 180px;
+    }
+
+    .step-no {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--deep);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #2f251d 0%, #4b3828 100%);
+      color: #fff8ef;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2, .cta p, .cta li {
+      color: #fff8ef;
+    }
+
+    .cta small {
+      color: rgba(255, 248, 239, 0.72);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .muted { color: var(--muted); }
+
+    footer {
+      padding: 28px 0 56px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .lead,
+      .grid-2,
+      .grid-3,
+      .contact,
+      .stats,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .section-card,
+      .cta {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Proposal for Premium EU Expansion</div>
+        <h1>Japan Best EU限定セット展開に関するご提案</h1>
+        <p class="hero-subtitle">
+          日本の優れた商品を、欧州富裕層に向けて「限定性」と「物語性」を備えた特別なセットとして展開するための、ブランド共創型パートナーシップのご提案です。
+        </p>
+
+        <div class="lead">
+          <div class="lead-text">
+            <p>
+              Japan Best EUは、単に日本の商品を海外で販売するのではなく、<strong>御社ブランドの価値が正しく伝わる欧州向け特設ブティック</strong>を構築・運営するパートナーです。
+            </p>
+            <p>
+              欧州富裕層に選ばれるためには、品質の高さだけではなく、<strong>背景にある思想、作り手の物語、限定性、そして購入後の体験</strong>までを一体として設計する必要があります。
+            </p>
+            <p>
+              そのため私たちは、<strong>Japan Best EU限定の商品セット</strong>を共同で企画し、既存のブランド資産を活用しながら、欧州の高所得者層に響くストーリーテリング型の商品ページを制作し、販売します。
+            </p>
+          </div>
+          <aside class="lead-side">
+            <strong>本提案の骨子</strong>
+            <div>1. Japan Best EU限定セットで価格競争を回避</div>
+            <div>2. ストーリーテリングで本物の価値を伝達</div>
+            <div>3. 購入・配送・返品・問い合わせを一括対応</div>
+          </aside>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="label">POSITIONING</span>
+            <div class="value">御社ブランド専用の欧州向けオンライン・ブティック</div>
+          </div>
+          <div class="stat">
+            <span class="label">VALUE CREATION</span>
+            <div class="value">限定セット × 物語設計 × 高品質な顧客体験</div>
+          </div>
+          <div class="stat">
+            <span class="label">OPERATION</span>
+            <div class="value">購入後サポートまでJapan Best EUが一括運営</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>Japan Best EUのミッション</h2>
+          <p class="section-intro">
+            私たちは、御社が丹精込めて作り上げた商品の本当の価値を、ヨーロッパの人々にしっかりと伝えます。単に「モノを売る」のではなく、現地でのブランド価値を向上させ、御社のさらなる海外展開を支える専属パートナーでありたいと考えています。
+          </p>
+          <div class="accent-box">
+            <strong>目指す姿</strong><br />
+            「日本の商品を売る」のではなく、<strong>選ばれた作り手の、選ばれた品を、選ばれた顧客に届ける</strong>こと。
+            そのために、販売前の見せ方から購入後のサポートまで、一貫したラグジュアリー体験を設計します。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>海外展開における典型課題と、Japan Best EUの解決策</h2>
+          <p class="section-intro">
+            越境ECにおけるブランド毀損は、商品そのものよりも、配送・言語・関税・問い合わせ対応などの顧客体験の摩擦から生じることが少なくありません。Japan Best EUは、それらをあらかじめ設計することで、ブランド価値を守りながら欧州展開を実現します。
+          </p>
+          <div class="grid-3">
+            <div class="panel">
+              <h3>顧客体験の悪化</h3>
+              <p>配送状況が分からない、言語が通じない、問い合わせへの返答が遅い、といった不安が購入満足度を損ないます。</p>
+              <p><strong>解決：</strong> 現地語による丁寧な顧客対応をJapan Best EUが代行します。</p>
+            </div>
+            <div class="panel">
+              <h3>関税・追加費用の不満</h3>
+              <p>受け取り時の関税請求や予想外の費用負担は、高額商品の体験価値を大きく損ないます。</p>
+              <p><strong>解決：</strong> DDP（関税元払い）を前提に、購入時以外の追加負担がない状態を目指します。</p>
+            </div>
+            <div class="panel">
+              <h3>価格競争による価値低下</h3>
+              <p>巨大プラットフォーム上では、他の安価な商品と並べられ、ブランドの世界観が失われやすくなります。</p>
+              <p><strong>解決：</strong> 御社専用の独立ページで、適正価格と物語性をもって価値を訴求します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>他モデルとの比較</h2>
+          <p class="section-intro">
+            Japan Best EUは、「ブランドの保護」と「顧客体験」の両立を重視しています。手間の少なさだけではなく、富裕層向け販売にふさわしい見せ方と運営品質を提供します。
+          </p>
+          <div class="comparison">
+            <table>
+              <thead>
+                <tr>
+                  <th>比較項目</th>
+                  <th>Japan Best EU</th>
+                  <th>一般的な越境ECモール</th>
+                  <th>購入代行サービス</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ブランドの保護</td>
+                  <td><span class="good">◎</span> 独立ページで価値を訴求</td>
+                  <td><span class="bad">×</span> 価格競争に巻き込まれやすい</td>
+                  <td><span class="mid">△</span> 自動翻訳中心で世界観が弱い</td>
+                </tr>
+                <tr>
+                  <td>関税負担</td>
+                  <td><span class="good">◎</span> 追加負担を感じさせない設計</td>
+                  <td><span class="mid">△</span> 受け取り時に支払いが発生しやすい</td>
+                  <td><span class="bad">×</span> 顧客が負担しやすい</td>
+                </tr>
+                <tr>
+                  <td>顧客サポート</td>
+                  <td><span class="good">◎</span> 現地語で丁寧に一括対応</td>
+                  <td><span class="mid">△</span> プラットフォーム規定依存</td>
+                  <td><span class="bad">×</span> 返品やクレーム対応が弱い</td>
+                </tr>
+                <tr>
+                  <td>パートナー様の手間</td>
+                  <td><span class="good">◎</span> DHLのドライバーに納品</td>
+                  <td><span class="mid">△</span> 輸出実務の負担が発生</td>
+                  <td><span class="good">◎</span> 国内発送のみ</td>
+                </tr>
+                <tr>
+                  <td>ターゲット層</td>
+                  <td><span class="good">◎</span> EUの高所得者層・富裕層</td>
+                  <td><span class="mid">△</span> 不特定多数・価格重視</td>
+                  <td><span class="mid">△</span> 日本カルチャーの熱心なファン中心</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>独自の販売戦略：ストーリーテリング型ページ</h2>
+          <p class="section-intro">
+            当社が提供するのは、単なる商品カタログではありません。現地ヨーロッパにおける<strong>「御社ブランド専用のオンライン・Popupサイト（特設ショールーム）」</strong>として、商品の背景と価値を丁寧に編み上げるページを制作します。
+          </p>
+          <div class="grid-2">
+            <div class="panel">
+              <h3>ページで語ること</h3>
+              <ul>
+                <li>商品の歴史と伝統</li>
+                <li>職人・制作者の想いと技術</li>
+                <li>素材や産地の背景</li>
+                <li>購入後に生活がどう豊かになるか</li>
+                <li>限定セットである理由と価値</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>ページの見せ方</h3>
+              <ul>
+                <li>美しい写真を中心にした誌面のような構成</li>
+                <li>既存サイトの文章・画像・レビューを再編集</li>
+                <li>EU文化に合わせた自然な翻訳と表現</li>
+                <li>価格ではなく希少性と体験価値で訴求</li>
+                <li>ブランドの公式性と安心感を明示</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>御社にお願いしたい3つのこと</h2>
+          <p class="section-intro">
+            初期投資や大規模な新商品開発は必要ありません。既存資産を活かしながら、双方にとって無理のない形でブランド価値を高めるため、以下の3点についてご協力をお願いしたいと考えています。
+          </p>
+          <div class="grid-3">
+            <div class="panel">
+              <h3>1. 限定セットの共同設計</h3>
+              <p>Japan Best EU限定の「高付加価値セット」をご用意ください。単品での価格競争を避け、特別なセットであることを明確に打ち出します。</p>
+              <ul>
+                <li>既存商品の組み合わせで構成可能</li>
+                <li>高級和紙・桐箱などの特別包装も有効</li>
+                <li>数量限定・季節限定・署名カード同梱なども効果的</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>2. ブランド資産の利用許可</h3>
+              <p>御社がすでにお持ちの素材を活用し、欧州向けに世界観を再編集します。</p>
+              <ul>
+                <li>自社サイトやモール掲載中の画像・文章</li>
+                <li>購入者レビューやブランド紹介文</li>
+                <li>特別なセット用の写真や動画があれば優先活用</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>3. 初期不良対応フローへの合意</h3>
+              <p>高額商品にふさわしい顧客体験を守るため、欧州側での一次対応を前提とした運用をご承認ください。</p>
+              <ul>
+                <li>欧州拠点での一次検品</li>
+                <li>写真・動画など証拠データでの不良判定</li>
+                <li>次回相殺または代替品同梱による補償</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-card">
+          <h2>購入後サポート体制</h2>
+          <p class="section-intro">
+            購入、配送、関税、返品、問い合わせまでをJapan Best EUが一括して担うことで、御社にはブランド価値の高い形で欧州市場に進出していただけます。
+          </p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-no">1</div>
+              <h3>受注</h3>
+              <p>Japan Best EUの特設ページにて受注し、限定セットとして販売します。</p>
+            </div>
+            <div class="step">
+              <div class="step-no">2</div>
+              <h3>配送手配</h3>
+              <p>関税や輸送面の設計を含め、顧客が不安を感じにくい形で手配します。</p>
+            </div>
+            <div class="step">
+              <div class="step-no">3</div>
+              <h3>顧客対応</h3>
+              <p>多言語での問い合わせ対応を行い、進捗案内や購入後サポートを一元化します。</p>
+            </div>
+            <div class="step">
+              <div class="step-no">4</div>
+              <h3>初期不良対応</h3>
+              <p>欧州拠点で一次検品を行い、証拠データをもとにスムーズな判定へつなげます。</p>
+            </div>
+            <div class="step">
+              <div class="step-no">5</div>
+              <h3>継続改善</h3>
+              <p>販売反応を見ながら、次のセット展開やシリーズ化につなげていきます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div class="contact">
+            <div>
+              <h2>共にブランドを育て、世界へ。</h2>
+              <p>
+                まずは、欧州向けシグネチャーセット1型から始めませんか。<br />
+                スモールスタートで市場の反応を確認しながら、御社ブランドにふさわしい欧州展開を丁寧に構築していきます。
+              </p>
+              <ul>
+                <li>価格競争を避ける限定セット設計</li>
+                <li>欧州富裕層に響く商品ページ制作</li>
+                <li>購入後体験まで含めた一貫運営</li>
+              </ul>
+            </div>
+            <div class="contact-card">
+              <strong>Japan Best EU 担当窓口</strong>
+              <p style="margin-top: 14px;">
+                Email: contact@japanbest.eu<br />
+                Tel: +352-XXX-XXXX
+              </p>
+              <small>ご不明点や個別条件のご相談も承ります。</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Japan Best EU Proposal Page
+  </footer>
+</body>
+</html>

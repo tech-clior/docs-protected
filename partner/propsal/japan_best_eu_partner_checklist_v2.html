@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Best EU パートナー様向け確認チェックリスト</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --paper: #fffdf9;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: #d8cfc4;
+      --gold: #9f7a49;
+      --gold-soft: #efe5d5;
+      --green-soft: #edf5ef;
+      --blue-soft: #edf3f9;
+      --rose-soft: #f8eeee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      background: linear-gradient(180deg, #f3eee6 0%, #f8f5f0 100%);
+      color: var(--ink);
+      line-height: 1.8;
+    }
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    .hero {
+      background: var(--paper);
+      border: 1px solid rgba(159,122,73,.25);
+      border-radius: 24px;
+      padding: 44px;
+      box-shadow: 0 18px 50px rgba(31,26,23,.06);
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(159,122,73,.28);
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,.72);
+    }
+    h1 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+      margin: 0 0 14px;
+      letter-spacing: .02em;
+    }
+    .lead {
+      font-size: 17px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 860px;
+    }
+    .note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      background: var(--gold-soft);
+      border-radius: 16px;
+      color: #5d4929;
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 34px rgba(31,26,23,.05);
+    }
+    h2 {
+      font-size: 21px;
+      margin: 0 0 14px;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .checklist {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .checklist li {
+      position: relative;
+      padding: 0 0 0 34px;
+      margin: 0 0 16px;
+    }
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .item-title {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .item-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .full {
+      grid-column: 1 / -1;
+    }
+    .bands {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .band {
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid var(--line);
+    }
+    .band h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .band p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .green { background: var(--green-soft); }
+    .blue { background: var(--blue-soft); }
+    .rose { background: var(--rose-soft); }
+    .footer-box {
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+    }
+    .sign-area {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 22px;
+    }
+    .sign-line {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      min-height: 52px;
+    }
+    @media (max-width: 860px) {
+      .grid, .bands, .sign-area { grid-template-columns: 1fr; }
+      .hero, .card, .footer-box { padding: 24px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .wrap { padding: 20px; max-width: none; }
+      .hero, .card, .footer-box { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Partner Alignment Checklist</div>
+      <h1>Japan Best EU<br>パートナー様向け確認チェックリスト</h1>
+      <p class="lead">本チェックリストは、Japan Best EUとのお取引にあたり、パートナー様に運用内容・役割分担・価格方針・数量方針などを正確にご理解いただいているかを確認するための資料です。ご面談時または導入前の確認用としてご活用ください。</p>
+      <div class="note">各項目についてご確認いただき、認識に相違がない状態で開始することで、導入後のやり取りをより円滑に進めることができます。</div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="section-label">01. 事業の基本方針</div>
+        <h2>販売の考え方</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">Japan Best EUが注文受付を行うことを理解している</span>
+            <span class="item-desc">欧州のお客様からの注文受付、販売ページ運営、顧客対応はJapan Best EUが行います。</span>
+          </li>
+          <li>
+            <span class="item-title">販売商品はJapan Best EU限定セットとして展開されることを理解している</span>
+            <span class="item-desc">一般流通品ではなく、限定性と物語性のある構成で販売する前提です。</span>
+          </li>
+          <li>
+            <span class="item-title">毎月安定して販売を継続することがブランド強化につながる方針を理解している</span>
+            <span class="item-desc">単発で大きく売るのではなく、限定感を保ちながら継続的に販売する考え方です。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">02. 数量と開始方法</div>
+        <h2>導入時の進め方</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">まずは一つのセットから開始できることを理解している</span>
+            <span class="item-desc">無理に多品種で始めるのではなく、ブランド価値が伝わりやすい商品から開始します。</span>
+          </li>
+          <li>
+            <span class="item-title">販売個数は商品にもよるが、毎月最大20個程度を目安とする方針を理解している</span>
+            <span class="item-desc">限定感を維持しながら安定販売を行うための目安です。</span>
+          </li>
+          <li>
+            <span class="item-title">販売実績を見ながら、今後のシリーズ化や拡張を検討する流れを理解している</span>
+            <span class="item-desc">初期段階では慎重に進め、相性の良い構成を育てていきます。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">03. 価格方針</div>
+        <h2>価格の決め方</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">価格はJapan Best EUが設定することを理解している</span>
+            <span class="item-desc">価格は、商品原価だけでなく、限定性、付帯する体験価値、梱包、海外配送、顧客対応まで含めて設計します。</span>
+          </li>
+          <li>
+            <span class="item-title">単純な国内価格との比較ではなく、欧州向けプレミアム展開としての価格設計であることを理解している</span>
+            <span class="item-desc">高価格ではなく、適切なブランド価値を形成するための価格設定です。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">04. 注文連携</div>
+        <h2>注文データの受け渡し</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">注文データは週1〜2回、Excel等でまとめて共有される運用を理解している</span>
+            <span class="item-desc">都度出荷ではなく、一定の頻度で取りまとめて連携する形です。</span>
+          </li>
+          <li>
+            <span class="item-title">商品準備完了後は、更新したExcelデータをJapan Best EUへ返送いただく流れを理解している</span>
+            <span class="item-desc">出荷準備完了の確認は、更新済みデータで行います。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">05. お支払い</div>
+        <h2>決済方法</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">お支払いは、パートナー様の手数料負担が少ない銀行振込を基本としていることを理解している</span>
+            <span class="item-desc">運用上の基本は銀行振込ですが、必要に応じてクレジットカードにも対応可能です。</span>
+          </li>
+          <li>
+            <span class="item-title">個別の注文ごとの細かな決済交渉ではなく、定められた運用に沿って進行することを理解している</span>
+            <span class="item-desc">継続的かつ安定した運用を前提としています。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">06. 配送準備</div>
+        <h2>DHL出荷の流れ</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">DHLの配送手続きはJapan Best EUが行うことを理解している</span>
+            <span class="item-desc">パートナー様側で海外配送の手配を行っていただく必要はありません。</span>
+          </li>
+          <li>
+            <span class="item-title">伝票と集荷日はJapan Best EUから共有されることを理解している</span>
+            <span class="item-desc">共有された伝票を印刷し、梱包済み商品に貼付いただきます。</span>
+          </li>
+          <li>
+            <span class="item-title">集荷日にDHLドライバーへ商品をお渡しいただく流れを理解している</span>
+            <span class="item-desc">国内倉庫への納品ではなく、DHLドライバーへの引き渡しが基本となります。</span>
+          </li>
+          <li>
+            <span class="item-title">この運用により、国内送料が発生しないことを理解している</span>
+            <span class="item-desc">追加の国内配送手配が不要な設計です。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card full">
+        <div class="section-label">07. 役割分担</div>
+        <h2>どちらが何を担当するか</h2>
+        <div class="bands">
+          <div class="band blue">
+            <h3>Japan Best EUの担当</h3>
+            <p>商品ページ制作、価格設定、注文受付、顧客対応、海外配送手続き、DHL手配、返品窓口対応を担当します。</p>
+          </div>
+          <div class="band green">
+            <h3>パートナー様の担当</h3>
+            <p>限定セットのご用意、注文データに基づく商品準備、更新済みデータの返送、梱包済み商品のDHL引き渡しをご対応いただきます。</p>
+          </div>
+          <div class="band rose">
+            <h3>双方で連携する事項</h3>
+            <p>限定セットの構成、ブランド素材の提供、販売開始時期、継続展開の方向性については双方で共有しながら進めます。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="section-label">08. ブランド表現</div>
+        <h2>掲載素材と表現方針</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">既存WEBサイトの文章・画像・ブランド情報をもとに商品ページを制作することを理解している</span>
+            <span class="item-desc">欧州富裕層に響く見せ方に再構成しながら、ブランドの価値が伝わる形に整えます。</span>
+          </li>
+          <li>
+            <span class="item-title">大量販売よりも、限定性・物語性・世界観を重視した販売方針であることを理解している</span>
+            <span class="item-desc">価格競争に巻き込まれないことを重視しています。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">09. 返品・顧客対応</div>
+        <h2>購入後の対応</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">購入後の顧客対応はJapan Best EUが行うことを理解している</span>
+            <span class="item-desc">お問い合わせ、配送確認、返品受付などの一次対応はJapan Best EUが担当します。</span>
+          </li>
+          <li>
+            <span class="item-title">必要に応じて、商品確認や対応判断についてパートナー様へご相談する場合があることを理解している</span>
+            <span class="item-desc">品質確認や代替対応が必要な場合のみ、個別にご連携します。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">10. 個人情報の取り扱い</div>
+        <h2>EU顧客情報の管理</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">EUのお客様の個人情報は、GDPRにのっとって取り扱う必要があることを理解している</span>
+            <span class="item-desc">すでに海外販売をご経験されているパートナー様を前提としておりますが、念のための確認事項として記載しています。</span>
+          </li>
+          <li>
+            <span class="item-title">個人情報の受け渡しや管理が必要な場合には、適切な管理方法で対応する必要があることを理解している</span>
+            <span class="item-desc">必要な情報の範囲や受け渡し方法については、運用開始前に整理したうえで進めます。</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="section-label">11. 税務と輸出名義</div>
+        <h2>輸出時の取り扱い</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">輸出元がパートナー様名義となることを理解している</span>
+            <span class="item-desc">輸出書類上の名義により、国内取引と異なる整理が必要になります。</span>
+          </li>
+          <li>
+            <span class="item-title">この商品にかかった仕入れ時の消費税が還付対象となる考え方を理解している</span>
+            <span class="item-desc">還付の具体的なお手続きは、各社の顧問税理士様等にもご確認いただく前提です。</span>
+          </li>
+          <li>
+            <span class="item-title">還付に必要となるデータはJapan Best EUから取りまとめて提供することを理解している</span>
+            <span class="item-desc">社内確認や税務処理に必要な情報整理をサポートします。</span>
+          </li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="section-label">12. 梱包時の注意事項</div>
+        <h2>ブランドイメージ維持のための確認</h2>
+        <ul class="checklist">
+          <li>
+            <span class="item-title">商品を梱包する際には、ブランドイメージを保つため、日本円での購入価格がわかるInvoice等の書類を商品に同梱しない必要があることを理解している</span>
+            <span class="item-desc">お客様に日本国内での購入価格が伝わらないよう、同梱書類の内容にはご注意いただきます。</span>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="footer-box">
+      <div class="section-label">Final Confirmation</div>
+      <h2>確認欄</h2>
+      <p class="lead" style="font-size:15px; max-width:none;">上記の内容について確認し、Japan Best EUとのお取引開始にあたり、基本方針および運用内容に認識相違がないことを確認しました。</p>
+      <div class="sign-area">
+        <div class="sign-line">パートナー様名：</div>
+        <div class="sign-line">ご担当者様名：</div>
+        <div class="sign-line">ご確認日：</div>
+        <div class="sign-line">備考：</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
