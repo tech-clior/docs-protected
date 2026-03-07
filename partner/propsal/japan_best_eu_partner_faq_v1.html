@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Best EU | パートナー様向けFAQ</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf9;
+      --ink: #1f1a17;
+      --muted: #6f665f;
+      --line: #e6ddd2;
+      --gold: #9b7b45;
+      --accent: #2f4a57;
+      --soft: #f2ece3;
+      --soft2: #eef3f5;
+      --shadow: 0 12px 30px rgba(31, 26, 23, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #efe8dd 0%, var(--bg) 240px);
+      line-height: 1.8;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+    }
+    .hero {
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(155,123,69,.18);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      display: inline-block;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .lead {
+      font-size: 17px;
+      color: var(--muted);
+      margin: 0;
+      max-width: 860px;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0 0;
+    }
+    .summary .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+    }
+    .summary .label {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .summary p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .toc {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+    .toc h2, .section-title {
+      margin: 0 0 16px;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .toc-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: linear-gradient(180deg, #fff, #fbf9f5);
+    }
+    .toc-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .toc-item span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    section {
+      margin-bottom: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      flex: 0 0 auto;
+    }
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-weight: 700;
+      position: relative;
+      padding-right: 56px;
+      font-size: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--soft2);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    details[open] summary::after { content: "−"; }
+    .answer {
+      padding: 0 20px 20px;
+      color: var(--muted);
+      font-size: 15px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #fcfbf9);
+    }
+    .answer p { margin: 14px 0 0; }
+    .answer ul {
+      margin: 12px 0 0 1.2em;
+      padding: 0;
+    }
+    .answer li { margin: 8px 0; }
+    .note {
+      margin-top: 22px;
+      background: linear-gradient(180deg, #fffaf0, #fff);
+      border: 1px solid rgba(155,123,69,.26);
+      border-radius: 18px;
+      padding: 18px 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .footer {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .summary, .toc-grid { grid-template-columns: 1fr; }
+      .hero, section, .toc { padding: 22px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .hero, .toc, section { box-shadow: none; }
+      details { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Japan Best EU</div>
+      <h1>パートナー様向け FAQ</h1>
+      <p class="lead">本ページは、Japan Best EUとのお取り組みにあたり、パートナー様から想定されるご質問を整理したものです。限定セットの考え方、受発注の流れ、配送、返品、税務対応、ブランド表現まで、実務上の気になる点を一通りご確認いただけます。</p>
+      <div class="summary">
+        <div class="card">
+          <div class="label">Point 01</div>
+          <p>Japan Best EUでは、単なる海外販売ではなく、欧州富裕層に向けた限定セットの企画・販売・顧客対応までを一貫して行います。</p>
+        </div>
+        <div class="card">
+          <div class="label">Point 02</div>
+          <p>パートナー様には、商品供給・出荷準備・必要情報の共有を中心にご協力いただき、欧州側での販売運営はJapan Best EUが担います。</p>
+        </div>
+        <div class="card">
+          <div class="label">Point 03</div>
+          <p>ブランド価値を守りながら、限定性・物語性・上質な購入体験を整え、価格競争に巻き込まれにくい販売設計を目指します。</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="toc">
+      <h2>よくあるご質問のテーマ</h2>
+      <div class="toc-grid">
+        <div class="toc-item"><strong>1. 取り組みの全体像</strong><span>なぜJapan Best EUと組むのか、どのような形で販売するのか</span></div>
+        <div class="toc-item"><strong>2. 商品・限定セット</strong><span>どのような商品が向いているか、既存商品を使えるか</span></div>
+        <div class="toc-item"><strong>3. 受発注・お支払い</strong><span>注文連携、Excel運用、銀行振込・カード対応について</span></div>
+        <div class="toc-item"><strong>4. 出荷・配送</strong><span>DHL集荷、国内送料、配送トラブル時の役割分担</span></div>
+        <div class="toc-item"><strong>5. 返品・顧客対応</strong><span>返品窓口、交換、不良品対応、欧州顧客とのやり取り</span></div>
+        <div class="toc-item"><strong>6. 税務・ブランド運営</strong><span>輸出名義、必要データ、ブランド表現、販売条件の考え方</span></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="section-head"><div class="num">1</div><h2 class="section-title">取り組みの全体像</h2></div>
+      <div class="faq">
+        <details open>
+          <summary>Japan Best EUは、どのような役割を担いますか。</summary>
+          <div class="answer">
+            <p>Japan Best EUは、欧州向けの販売窓口として、商品ページの制作、受注、決済、海外配送手配、顧客からのお問い合わせ対応、返品対応までを一括して担います。パートナー様には、限定セットの企画協力、商品供給、出荷準備、必要情報のご共有を中心にご協力いただく想定です。</p>
+          </div>
+        </details>
+        <details>
+          <summary>なぜ、通常の卸売や越境ECではなく、限定セット形式で販売するのですか。</summary>
+          <div class="answer">
+            <p>欧州富裕層向けの販売では、単に商品を並べるだけではなく、限定性・背景・物語性を含めて価値を伝えることが重要です。そのため、既存商品をそのまま並べるのではなく、Japan Best EU限定セットとして再編集し、価格競争に巻き込まれにくい形で販売いたします。</p>
+          </div>
+        </details>
+        <details>
+          <summary>Japan Best EUだけで販売する理由は何ですか。</summary>
+          <div class="answer">
+            <p>限定性を明確にし、特別感を維持するためです。Japan Best EU限定セットとして位置づけることで、一般流通品との差別化がしやすくなり、欧州の顧客に対しても「ここでしか買えない」という訴求が可能になります。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="num">2</div><h2 class="section-title">商品・限定セットについて</h2></div>
+      <div class="faq">
+        <details>
+          <summary>どのような商品が欧州向けに適していますか。</summary>
+          <div class="answer">
+            <p>品質の高さに加え、作り手の背景、産地、素材、技法、用途の美しさなど、しっかりとしたストーリーを伝えられる商品が適しています。特に、ギフト需要やコレクション需要、自宅空間を上質に整えたい層に響く商品は相性が良いと考えています。</p>
+          </div>
+        </details>
+        <details>
+          <summary>新商品を作る必要はありますか。</summary>
+          <div class="answer">
+            <p>必ずしも新商品を一から開発していただく必要はありません。既存商品の組み合わせ、付属品の追加、箱や説明カードの工夫などによって、Japan Best EU限定セットとして十分に設計できるケースも多くあります。</p>
+          </div>
+        </details>
+        <details>
+          <summary>商品ページ用の文章や画像は新たに用意する必要がありますか。</summary>
+          <div class="answer">
+            <p>既存のWEBサイトに掲載されている文章・画像・ブランド紹介素材をベースに活用できれば問題ありません。Japan Best EU側で、欧州富裕層向けに伝わるように構成や表現を調整し、商品ページとして再編集いたします。</p>
+          </div>
+        </details>
+        <details>
+          <summary>価格はどのように決めますか。</summary>
+          <div class="answer">
+            <p>商品原価だけでなく、限定性、付帯する体験価値、梱包、海外配送、顧客対応までを含めて設計します。単純な価格比較ではなく、欧州向けプレミアム展開として適切な価格帯となるよう、Japan Best EUにて設定いたします。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="num">3</div><h2 class="section-title">受発注・お支払いについて</h2></div>
+      <div class="faq">
+        <details>
+          <summary>注文はどのように連携されますか。</summary>
+          <div class="answer">
+            <p>ご注文はJapan Best EUで受け付け、その後、週1回または週2回を基本として、注文内容を取りまとめたExcelデータ等をパートナー様へお送りします。個別の注文を都度連携するのではなく、一定の頻度でまとめて連携する運用を想定しています。</p>
+          </div>
+        </details>
+        <details>
+          <summary>お支払い方法はどのようになりますか。</summary>
+          <div class="answer">
+            <p>お支払いは、パートナー様の手数料負担が少ない銀行振込を基本としています。ご希望や条件に応じて、クレジットカードでのお支払いにも対応可能です。</p>
+          </div>
+        </details>
+        <details>
+          <summary>在庫管理はどのように行いますか。</summary>
+          <div class="answer">
+            <p>基本的には、販売対象商品の在庫状況を事前に共有いただき、受注後に出荷準備の可否をご確認いただく流れです。限定セットでは数量管理が重要になるため、販売数の上限や欠品時の扱いも、事前に取り決めて運用いたします。</p>
+          </div>
+        </details>
+        <details>
+          <summary>出荷準備後の連携はどのように行いますか。</summary>
+          <div class="answer">
+            <p>商品のご準備が整いましたら、注文データを更新したExcelデータをJapan Best EUへご返送いただきます。その更新情報をもとに、弊社からDHLへ配送手続きを進めます。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="num">4</div><h2 class="section-title">出荷・配送について</h2></div>
+      <div class="faq">
+        <details>
+          <summary>配送は誰が手配しますか。</summary>
+          <div class="answer">
+            <p>海外配送の手配はJapan Best EUが行います。DHLへの手続き完了後、配送伝票と集荷日をパートナー様へお送りしますので、集荷日までに伝票を印刷し、梱包済みの商品へ貼付のうえ、DHLドライバーへお渡しください。</p>
+          </div>
+        </details>
+        <details>
+          <summary>国内送料は発生しますか。</summary>
+          <div class="answer">
+            <p>本運用では、パートナー様から国内倉庫等へ商品を送っていただく必要がないため、通常の国内送料は発生しません。集荷日にDHLドライバーへ直接お渡しいただく流れとなります。</p>
+          </div>
+        </details>
+        <details>
+          <summary>梱包はパートナー様側で行う必要がありますか。</summary>
+          <div class="answer">
+            <p>はい。商品特性を最もよくご存じのパートナー様に、適切な梱包をご対応いただく想定です。必要に応じて、破損防止の観点から推奨梱包方法を事前にすり合わせいたします。</p>
+          </div>
+        </details>
+        <details>
+          <summary>配送中の破損や遅延が発生した場合はどうなりますか。</summary>
+          <div class="answer">
+            <p>顧客との一次対応はJapan Best EUで行います。状況に応じて、配送会社との確認、再送の要否、代替品の手配などを個別に判断し、必要な場面でパートナー様と連携いたします。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="num">5</div><h2 class="section-title">返品・顧客対応について</h2></div>
+      <div class="faq">
+        <details>
+          <summary>欧州のお客様からの問い合わせ対応は誰が行いますか。</summary>
+          <div class="answer">
+            <p>お客様からのご注文・配送・返品・商品に関するお問い合わせは、Japan Best EUが窓口として対応します。パートナー様には、商品仕様や在庫状況など、必要に応じて確認事項をご相談させていただきます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>返品や交換が発生した場合の流れを教えてください。</summary>
+          <div class="answer">
+            <p>まずはJapan Best EUがお客様対応を行い、返品理由を確認します。そのうえで、初期不良なのか、お客様都合なのか、再販可能かどうかを整理し、必要に応じてパートナー様へご相談いたします。ケースごとに判断しつつ、できる限りブランド価値を損なわない対応を行います。</p>
+          </div>
+        </details>
+        <details>
+          <summary>商品説明と実物の差異に関するクレームを防ぐにはどうすればよいですか。</summary>
+          <div class="answer">
+            <p>素材感、サイズ、手仕事による個体差、使用上の注意点などを、商品ページ上であらかじめ明確に記載することが重要です。Japan Best EUでは、既存情報をもとに、誤解が生じやすい点を整理したうえでページ制作を行います。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div class="num">6</div><h2 class="section-title">税務・ブランド運営について</h2></div>
+      <div class="faq">
+        <details>
+          <summary>輸出元の名義はどのようになりますか。</summary>
+          <div class="answer">
+            <p>輸出元はパートナー様名義となります。そのため、本件商品にかかった仕入れ時の消費税については、輸出取引に対応する整理がしやすくなります。還付申告の際に必要となるデータについては、Japan Best EUより取りまとめてご提供いたします。実際のお手続きや申告方法については、顧問税理士様等へのご確認をお願いいたします。</p>
+          </div>
+        </details>
+        <details>
+          <summary>ブランドイメージが崩れることはありませんか。</summary>
+          <div class="answer">
+            <p>Japan Best EUでは、安売り型の販促ではなく、限定性・物語性・上質な顧客体験を重視した販売を前提としています。商品ページも、既存のブランド資産を尊重しながら制作し、必要に応じて事前にご確認いただく運用を想定しています。</p>
+          </div>
+        </details>
+        <details>
+          <summary>他の販売チャネルと価格や見せ方が競合しませんか。</summary>
+          <div class="answer">
+            <p>通常商品とは異なる限定セットとして設計することで、既存チャネルとの直接比較を避けやすくなります。価格設定や表現方法についても、ブランド全体の整合性を意識しながら調整いたします。</p>
+          </div>
+        </details>
+        <details>
+          <summary>まずは小さく始めることはできますか。</summary>
+          <div class="answer">
+            <p>はい。まずは欧州向けのシグネチャーセットを一つから開始し、反応を見ながらシリーズ化していく進め方が可能です。無理に多品種で始めるのではなく、ブランド価値が伝わりやすい構成から始めることをおすすめしています。</p>
+          </div>
+        </details>
+        <details>
+          <summary>販売個数の目安はありますか。</summary>
+          <div class="answer">
+            <p>販売個数は商品にもよりますが、限定感が重要であるため、毎月最大20個を目安に考えています。数量を絞ることで希少性を保ちやすくなり、欧州向けプレミアム展開としての価値も伝わりやすくなります。</p>
+            <p>また、毎月安定して販売を続けることは、ブランドの継続的な露出につながり、長期的なブランド強化にもつながります。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="note">
+        <strong>補足：</strong> 本FAQは、初回のご説明時によくいただくご質問を想定して整理したものです。実際のお取り組みでは、商品特性、数量、価格帯、梱包条件、販売時期などに応じて、個別に最適な運用をご提案いたします。
+      </div>
+    </section>
+
+    <div class="footer">Japan Best EU / Partner FAQ</div>
+  </div>
+</body>
+</html>
