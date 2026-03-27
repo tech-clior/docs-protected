@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yukata Collection | Japan Best EU</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+      text-align: center;
+      background-color: var(--c-gray-100);
+    }
+
+    .page-hero-title {
+      font-family: var(--f-heading);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 500;
+      margin-bottom: var(--space-md);
+    }
+
+    .page-hero-subtitle {
+      font-size: 16px;
+      color: var(--c-gray-500);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .story-section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .story-grid.reverse {
+      direction: rtl;
+    }
+
+    .story-grid.reverse > * {
+      direction: ltr;
+    }
+
+    .story-content {
+      padding: var(--space-lg) 0;
+    }
+
+    .story-title {
+      font-family: var(--f-heading);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      margin-bottom: var(--space-md);
+      line-height: 1.2;
+    }
+
+    .story-text {
+      color: var(--c-gray-500);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Product Section */
+    .product-section {
+      padding: var(--space-xl) 0 var(--space-2xl);
+      background-color: var(--c-gray-100);
+    }
+
+    .product-section-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .collection-title {
+      font-family: var(--f-heading);
+      font-size: clamp(32px, 4vw, 40px);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    /* Carousel Specific CSS */
+    .product-carousel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .product-card {
+      background: var(--c-white);
+      padding: 0;
+      transition: transform 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-carousel-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    .product-carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+    }
+
+    .product-carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-carousel-track img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .product-carousel-container:hover .carousel-btn {
+      opacity: 1;
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: var(--c-white);
+    }
+
+    .product-info {
+      padding: 24px;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-family: var(--f-heading);
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: var(--c-gray-500);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .product-price {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .btn-buy {
+      width: 100%;
+      padding: 12px;
+      background: var(--c-black);
+      color: var(--c-white);
+      border: none;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-buy:hover {
+      background: var(--c-gray-800);
+    }
+
+    @media (max-width: 991px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+      .story-grid.reverse > * {
+        direction: ltr;
+      }
+      .product-carousel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .product-carousel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html" class="logo-link">
+          <img src="material/logo/Logo_mark.png" alt="Japan Best EU Mark" class="logo-mark">
+          <span class="logo-text">Japan Best EU</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="uchiwa.html">Uchiwa</a></li>
+          <li><a href="noren.html">Noren</a></li>
+          <li><a href="yukata.html">Yukata</a></li>
+          <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-btn">
+          <span>Cart</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="uchiwa.html">Uchiwa</a></li>
+        <li><a href="noren.html">Noren</a></li>
+        <li><a href="yukata.html">Yukata</a></li>
+        <li><a href="ceramics.html">Japanese Ceramics</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero-title">The Art of Yukata</h1>
+        <p class="page-hero-subtitle">Effortless Japanese elegance for your summer wardrobe. Experience the modern evolution of traditional summer kimono, designed for easy wearing and easy care.</p>
+      </div>
+    </section>
+
+    <!-- Heritage Story 1: What is a Yukata? -->
+    <section class="story-section">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-img ratio-4-5">
+            <img src="https://c.superdelivery.com/ip/n/sa/600/600/www.superdelivery.com/product_image/013/614/595/13614595_1000.jpg" alt="Yukata on a modern woman" loading="lazy">
+          </div>
+          <div class="story-content">
+            <h2 class="story-title">A New Summer Standard</h2>
+            <p class="story-text">
+              The Yukata is a lightweight, casual summer kimono that has graced Japanese festivals and warm summer evenings for centuries. Today, it has evolved into a versatile garment that brings an air of elegance to any summer outing or relaxing day at home. 
+            </p>
+            <p class="story-text">
+              For European enthusiasts, wearing a kimono may seem intimidating. Our curated collection offers "Pre-tailored" (お仕立て済) pieces, meticulously designed so you can slip them on with ease and enjoy luxurious, highly breathable comfort without compromising on traditional style.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Heritage Story 2: IKS COLLECTION & Ryobijin -->
+    <section class="story-section bg-light">
+      <div class="container">
+        <div class="story-grid reverse">
+          <div class="story-img ratio-4-5">
+            <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/616/529/13616529_s_1.jpg" alt="Elegant Yukata Patterns" loading="lazy">
+          </div>
+          <div class="story-content">
+            <h2 class="story-title">IKS COLLECTION & Ryobijin</h2>
+            <p class="story-text">
+              Crafted by Enomoto Co., Ltd., an esteemed textile trading company with over 80 years of history in Hamamatsu, the <strong>IKS COLLECTION</strong> stands on three pillars: authentic <i>Fabric</i>, intuitive <i>Usability</i>, and high-sense <i>Design</i>.
+            </p>
+            <p class="story-text">
+              This collection proudly features <strong>Ryobijin (涼美人)</strong>—a modern marvel of textile engineering. This lightweight, dry-touch polyester provides a gorgeous drape, complete freedom of movement, and is entirely wrinkle-resistant and machine washable. It's the perfect harmony of traditional beauty and modern convenience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section class="product-section">
+      <div class="container">
+        <div class="product-section-header">
+          <h2 class="collection-title">Curated Yukata Sets</h2>
+          <p class="section-desc">Each ensemble includes a beautiful Yukata, a handcrafted Uchiwa fan, and a traditional Tenugui towel.<br><em>*Strictly limited to 10 sets per month.</em></p>
+        </div>
+
+        <div class="product-carousel-grid">
+          
+          <!-- Product Card 1 -->
+          <article class="product-card">
+            <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
+              <div class="product-carousel-track">
+                <img src="https://c.superdelivery.com/ip/n/sa/600/600/www.superdelivery.com/product_image/013/614/595/13614595_1000.jpg" alt="Kiku-Shima Yukata Set" loading="lazy">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/004/814/398/4814398_s_1002.jpg" alt="White Goldfish Uchiwa" loading="lazy">
+              </div>
+              <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" onclick="scrollCarousel(this, 1, event)" aria-label="Next image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Kiku-Shima White Set</h3>
+              <p class="product-desc">Ryobijin fabric features an off-white base with colorful chrysanthemums. Complete with a White Goldfish Uchiwa.</p>
+              <div class="product-price">€430.00</div>
+              <a href="product_yukata_item1.html"><button class="btn-buy" aria-label="Purchase Kiku-Shima Set">View Details</button></a>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="product-card">
+            <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
+              <div class="product-carousel-track">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/616/529/13616529_s_1.jpg" alt="Tsubaki Set" loading="lazy">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/006/109/167/6109167_s_1003.jpg" alt="Lily of the Valley Uchiwa" loading="lazy">
+              </div>
+              <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" onclick="scrollCarousel(this, 1, event)" aria-label="Next image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Tsubaki White Set</h3>
+              <p class="product-desc">Bold watercolor camellias on a dry-touch polyester off-white base. Includes Lily of the Valley Uchiwa.</p>
+              <div class="product-price">€430.00</div>
+              <a href="product_yukata_item2.html"><button class="btn-buy" aria-label="Purchase Tsubaki Set">View Details</button></a>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="product-card">
+            <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
+              <div class="product-carousel-track">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/618/239/13618239_s_1.jpg" alt="Kiku-Bishi Set" loading="lazy">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/004/814/414/4814414_s_1004.jpg" alt="Dove Uchiwa" loading="lazy">
+              </div>
+              <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" onclick="scrollCarousel(this, 1, event)" aria-label="Next image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Kiku-Bishi White Set</h3>
+              <p class="product-desc">Delicate watercolor diamond chrysanthemums. Matched elegantly with a Light Blue Dove Uchiwa.</p>
+              <div class="product-price">€430.00</div>
+              <a href="product_yukata_item3.html"><button class="btn-buy" aria-label="Purchase Kiku-Bishi Set">View Details</button></a>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="product-card">
+            <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
+              <div class="product-carousel-track">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/526/173/13526173_s_1.jpg" alt="Yorokobi Set" loading="lazy">
+                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/004/814/395/4814395_s_1005.jpg" alt="Red Chrysanthemum Tenugui" loading="lazy">
+              </div>
+              <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" onclick="scrollCarousel(this, 1, event)" aria-label="Next image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Yorokobi Lotus Set</h3>
+              <p class="product-desc">Joyful lotus design paired with a Red Chrysanthemum Tenugui towel for an immersive summer experience.</p>
+              <div class="product-price">€480.00</div>
+              <a href="product_yukata_item4.html"><button class="btn-buy" aria-label="Purchase Yorokobi Set">View Details</button></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-title">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="uchiwa.html">Uchiwa</a></li>
+            <li><a href="noren.html">Noren</a></li>
+            <li><a href="yukata.html">Yukata</a></li>
+            <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#shipping">Shipping</a></li>
+            <li><a href="#returns">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Account</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">Log In</a></li>
+            <li><a href="register.html">Create Account</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Japan Best EU. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.mobile-nav');
+      const body = document.body;
+
+      if(toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const isActive = nav.classList.contains('active');
+          if (isActive) {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            body.style.overflow = '';
+          } else {
+            nav.classList.add('active');
+            toggle.classList.add('active');
+            body.style.overflow = 'hidden';
+          }
+        });
+
+        const links = nav.querySelectorAll('a');
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            body.style.overflow = '';
+          });
+        });
+      }
+
+      // Initialize Carousel Scroll Tracking
+      const tracks = document.querySelectorAll('.product-carousel-track');
+      tracks.forEach(track => {
+        track.addEventListener('scroll', () => {
+          const container = track.closest('.product-carousel-container');
+          const dots = container.querySelectorAll('.dot');
+          const scrollPos = track.scrollLeft;
+          const itemWidth = track.clientWidth;
+          const activeIndex = Math.round(scrollPos / itemWidth);
+
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeIndex);
+          });
+        });
+      });
+    });
+
+    function scrollCarousel(btn, direction, e) {
+      e.stopPropagation();
+      e.preventDefault();
+      const container = btn.closest('.product-carousel-container');
+      const track = container.querySelector('.product-carousel-track');
+      const itemWidth = track.clientWidth;
+      track.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japanese Ceramics | Japan Best EU</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+      text-align: center;
+      background-color: var(--c-gray-100);
+    }
+
+    .page-hero-title {
+      font-family: var(--f-heading);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 500;
+      margin-bottom: var(--space-md);
+    }
+
+    .page-hero-subtitle {
+      font-size: 16px;
+      color: var(--c-gray-500);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .story-section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .story-grid.reverse {
+      direction: rtl;
+    }
+
+    .story-grid.reverse>* {
+      direction: ltr;
+    }
+
+    .story-content {
+      padding: 0 var(--space-xl);
+    }
+
+    .story-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--c-gray-500);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .story-title {
+      font-family: var(--f-heading);
+      font-size: 32px;
+      margin-bottom: var(--space-md);
+      line-height: 1.2;
+    }
+
+    .story-text {
+      font-size: 16px;
+      color: var(--c-gray-800);
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (max-width: 991px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Self-contained carousel - does NOT use ratio-1-1 */
+    .product-carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--c-gray-100);
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-track>a {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      scroll-snap-align: start;
+      display: block;
+    }
+
+    .carousel-track>a>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      color: #000;
+      opacity: 0.7;
+      transition: opacity 0.2s, background 0.2s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel-btn:hover {
+      background: #fff;
+      opacity: 1;
+    }
+
+    .carousel-btn svg,
+    .carousel-btn path {
+      pointer-events: none;
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.2s;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel-dot.active {
+      background: #fff;
+    }
+
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-grid,
+      .story-grid.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: var(--space-lg);
+      }
+
+      .story-content {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-logo"><a href="index.html" class="logo-link"><img src="material/logo/Logo_mark.png"
+            alt="Japan Best EU Mark" class="logo-mark"><span class="logo-text">Japan Best EU</span></a></div>
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="uchiwa.html">Uchiwa</a></li>
+          <li><a href="noren.html">Noren</a></li>
+          <li><a href="ceramics.html" class="active">Japanese Ceramics</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="#cart" class="cart-btn"><span>Cart</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero" style="text-align: left; padding: var(--space-2xl) 0;">
+      <div class="container container-medium">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center;">
+          <div>
+            <h1 class="page-hero-title" style="margin-left: 0; text-align: left;">Shigaraki Ceramics</h1>
+            <p class="page-hero-subtitle" style="margin-left: 0; text-align: left;">Discover the warmth, texture, and
+              400-year heritage of Shigaraki-yaki. Meticulously hand-shaped by Meizan Kiln artisans to bring absolute
+              serenity to your home.</p>
+          </div>
+          <div style="width: 100%; position: relative; overflow: hidden; background: var(--c-gray-100);">
+            <img src="images/ceramics_authentic_fire.jpg" alt="Shigaraki Kiln Fire Ceramic"
+              style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 1: Shigaraki-yaki History -->
+    <section class="story-section bg-light">
+      <div class="container container-medium">
+        <div class="text-center" style="margin-bottom: var(--space-xl);">
+          <span class="story-label">The Language of the Earth</span>
+          <h2 class="story-title">Shigaraki-yaki: One of Japan's Six Ancient Kilns</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; font-size: 16px; color: var(--c-gray-800); line-height: 1.8;">
+          <p style="margin-bottom: var(--space-md); text-align: center;">
+            With a history spanning over 1,200 years, Shigaraki (located in modern Shiga Prefecture) is revered as one
+            of Japan's Six Ancient Kilns. Unlike highly decorated porcelain, Shigaraki-yaki embraces
+            <em>Wabi-Sabi</em>—finding beauty in the raw, natural texture of the earth.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: var(--space-xl);">
+            <div>
+              <h3 style="font-family: var(--f-heading); font-size: 22px; margin-bottom: 12px;">The Language of Fire</h3>
+              <p>Shigaraki-yaki is famous for <em>Hiiro</em> (fire colors)—beautiful scarlet and burnt orange gradients
+                that appear naturally during kiln firing. Combined with falling ash glazes (vidro), no two pieces ever
+                leave the kiln looking exactly the same.</p>
+            </div>
+            <div>
+              <h3 style="font-family: var(--f-heading); font-size: 22px; margin-bottom: 12px;">Warmth and Texture</h3>
+              <p>Using coarse, sandy clay gathered from the bed of ancient Lake Biwa, the ceramics possess a porous,
+                textured signature. This earthy warmth gives Shigaraki pieces a profound presence in any modern interior
+                space.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 2: Meizan Kiln -->
+    <section class="story-section">
+      <div class="container container-medium">
+        <div class="text-center" style="margin-bottom: var(--space-xl);">
+          <span class="story-label">400 Years of Heritage</span>
+          <h2 class="story-title">Meizan Kiln: Absolute Master Craftsmanship</h2>
+          <p class="story-text" style="max-width: 600px; margin: 0 auto;">Nestled within Shigaraki lies the historic
+            <em>Meizan Kiln</em>, a lineage of ceramicists holding strong to centuries of tradition.</p>
+        </div>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); align-items: start;">
+          <div>
+            <div class="ratio-4-5"
+              style="margin-bottom: var(--space-md); background: var(--c-gray-100); overflow: hidden;">
+              <img src="images/ceramics_hoccori_branch.jpg" alt="Meizan Craftsmanship"
+                style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%);">
+            </div>
+          </div>
+          <div style="padding-top: var(--space-md);">
+            <h3 style="font-family: var(--f-heading); font-size: 24px; font-weight: 600; margin-bottom: 12px;">100%
+              Handcrafted Dedication</h3>
+            <p style="font-size: 16px; color: var(--c-gray-800); line-height: 1.8; margin-bottom: var(--space-md);">For
+              over 400 years, the artisans at Meizan have respected the spirit of the earth, carrying forward secrets of
+              clay, fire, and ash that cannot be written down, but only felt through generations of hands.</p>
+            <p style="font-size: 16px; color: var(--c-gray-800); line-height: 1.8; margin-bottom: var(--space-md);">In
+              an age heavily dominated by mass automation and slip-casting molds, the ceramicists at Meizan strongly
+              refuse to compromise. <strong>Every single piece is completely handcrafted by Master Artisans.</strong>
+              The shaping of the clay on the wheel, the delicate application of glaze, and the meticulous, exhausting
+              process of wood-firing are done entirely by human touch.</p>
+            <p style="font-size: 16px; color: var(--c-gray-800); line-height: 1.8;">This unrelenting human touch is what
+              gives Meizan Kiln products—from large Ikebana vases to their famous miniature "Hoccori" healing owl
+              figures—their soulful resonance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURATED PRODUCTS -->
+    <section class="section border-bottom" id="collection">
+      <div class="container container-medium">
+        <div class="text-center">
+          <span class="story-label">The Collection</span>
+          <h2 class="section-title">Shigaraki-yaki Curations</h2>
+          <p class="section-desc">Carefully selected vessel sets that introduce traditional Japanese serenity—Wabi-Sabi—to modern European spaces.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- Hoccori Set -->
+          <div class="product-item">
+            <div class="product-carousel">
+              <div class="carousel-track">
+                <a href="product_ceramics_hoccori.html"><img src="images/ceramics_hoccori_branch.jpg" alt="Healing Owl Set"></a>
+                <a href="product_ceramics_hoccori.html"><img src="images/ceramics_hoccori_round.jpg" alt="Round Owl Mini Vase"></a>
+                <a href="product_ceramics_hoccori.html"><img src="images/ceramics_hoccori_attached.jpg" alt="Mini Vase with Attached Owl"></a>
+                <a href="product_ceramics_hoccori.html"><img src="images/ceramics_hoccori_incense.jpg" alt="White Mini Owl Incense Holder"></a>
+              </div>
+              <button class="carousel-btn prev" type="button" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" type="button" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+            <div class="product-info text-center" style="padding: 24px 0;">
+              <span class="product-label">Miniature Art</span>
+              <h4 class="product-name" style="font-size: 24px; margin-top: 8px;">
+                <a href="product_ceramics_hoccori.html">"Hoccori" Owl Set</a>
+              </h4>
+              <p style="font-size: 14px; color: var(--c-gray-500); margin-bottom: 16px;">A 4-piece miniature set
+                featuring good fortune owls and an incense holder, providing profound tranquility.</p>
+              <span class="product-price">€320.00</span>
+              <a href="product_ceramics_hoccori.html" class="btn btn-outline btn-block">Discover</a>
+            </div>
+          </div>
+
+          <!-- Authentic Set -->
+          <div class="product-item">
+            <div class="product-carousel">
+              <div class="carousel-track">
+                <a href="product_ceramics_authentic.html"><img src="images/ceramics_authentic_fire.jpg" alt="Authentic Vase Set"></a>
+                <a href="product_ceramics_authentic.html"><img src="images/ceramics_authentic_flower.jpg" alt="Small Flower Gold Accent Vase"></a>
+              </div>
+              <button class="carousel-btn prev" type="button" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" type="button" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+            <div class="product-info text-center" style="padding: 24px 0;">
+              <span class="product-label">High-End Ikebana</span>
+              <h4 class="product-name" style="font-size: 24px; margin-top: 8px;">
+                <a href="product_ceramics_authentic.html">Authentic Vase Set</a>
+              </h4>
+              <p style="font-size: 14px; color: var(--c-gray-500); margin-bottom: 16px;">A magnificent 2-piece high-end
+                set expressing true "Hiiro" fire colors and intricate gold leaf accents.</p>
+              <span class="product-price">€440.00</span>
+              <a href="product_ceramics_authentic.html" class="btn btn-outline btn-block">Discover</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-title">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="uchiwa.html">Uchiwa</a></li>
+            <li><a href="noren.html">Noren</a></li>
+            <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#shipping">Shipping</a></li>
+            <li><a href="#returns">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Cart</h4>
+          <ul class="footer-links">
+            <li><a href="#cart">View Cart</a></li>
+            <li><a href="#checkout">Checkout</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Japan Best EU. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Carousel
+      const carousels = document.querySelectorAll('.product-carousel');
+      carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        if (!track) return;
+
+        const slides = Array.from(track.children);
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+
+        let currentIndex = 0;
+
+        const updateDots = () => {
+          if (slides.length === 0) return;
+          const slideWidth = slides[0].clientWidth || 1;
+          currentIndex = Math.round(track.scrollLeft / slideWidth);
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        };
+
+        track.addEventListener('scroll', updateDots, { passive: true });
+
+        const goToSlide = (index) => {
+          if (index >= 0 && index < slides.length) {
+            track.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+          }
+        };
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(currentIndex - 1);
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(currentIndex + 1);
+          });
+        }
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(i);
+          });
+        });
+
+        updateDots();
+      });
+
+      // Mobile menu
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

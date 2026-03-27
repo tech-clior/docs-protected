@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyo-Uchiwa | Japan Best EU</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+      text-align: center;
+      background-color: var(--c-gray-100);
+    }
+
+    .page-hero-title {
+      font-family: var(--f-heading);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 500;
+      margin-bottom: var(--space-md);
+    }
+
+    .page-hero-subtitle {
+      font-size: 16px;
+      color: var(--c-gray-500);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .story-section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .story-grid.reverse {
+      direction: rtl;
+    }
+
+    .story-grid.reverse>* {
+      direction: ltr;
+    }
+
+    .story-content {
+      padding: 0 var(--space-xl);
+    }
+
+    .story-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--c-gray-500);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .story-title {
+      font-family: var(--f-heading);
+      font-size: 32px;
+      margin-bottom: var(--space-md);
+      line-height: 1.2;
+    }
+
+    .story-text {
+      font-size: 16px;
+      color: var(--c-gray-800);
+      line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (max-width: 991px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Self-contained carousel - does NOT use ratio-1-1 */
+    .product-carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--c-gray-100);
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-track>a {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      scroll-snap-align: start;
+      display: block;
+    }
+
+    .carousel-track>a>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      color: #000;
+      opacity: 0.7;
+      transition: opacity 0.2s, background 0.2s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel-btn:hover {
+      background: #fff;
+      opacity: 1;
+    }
+
+    .carousel-btn svg,
+    .carousel-btn path {
+      pointer-events: none;
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.2s;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel-dot.active {
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-grid,
+      .story-grid.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: var(--space-lg);
+      }
+
+      .story-content {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html" class="logo-link">
+          <img src="material/logo/Logo_mark.png" alt="Japan Best EU Mark" class="logo-mark">
+          <span class="logo-text">Japan Best EU</span>
+        </a>
+      </div>
+      
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="uchiwa.html">Uchiwa</a></li>
+          <li><a href="noren.html">Noren</a></li>
+          <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="#cart" class="cart-btn">
+          <span>Cart</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero" style="text-align: left; padding: var(--space-2xl) 0;">
+      <div class="container container-medium">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center;">
+          <div>
+            <h1 class="page-hero-title" style="margin-left: 0; text-align: left;">Kyo-Uchiwa</h1>
+            <p class="page-hero-subtitle" style="margin-left: 0; text-align: left;">The Gentle Breeze of the Capital. Discover the breathtaking traditional fans handcrafted in Kyoto—a perfect harmony of historical artisan techniques and minimalist modern beauty.</p>
+          </div>
+          <div style="width: 100%; position: relative; overflow: hidden; background: var(--c-gray-100);">
+            <img src="images/uchiwa_hands.png" alt="Handcrafted Kyo Uchiwa" style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 1: Heritage -->
+    <section class="story-section">
+      <div class="container container-medium">
+        <div class="story-grid">
+          <div class="story-image ratio-4-5">
+            <img src="images/uchiwa_craft.png" alt="Craftsmanship of Kyo-Uchiwa">
+          </div>
+          <div class="story-content">
+            <span class="story-label">Heritage & Craft</span>
+            <h2 class="story-title">Miyako Uchiwa:<br>The Capital's Masterpiece</h2>
+            <p class="story-text">Kyo-Uchiwa, historically known as "Miyako Uchiwa" (Capital Fan), carries the elegant aesthetic of Japan's ancient capital. Crafted by the dedicated artisans of the Kyoto Fan Commerce and Industry Cooperative, these fans represent the pinnacle of traditional technique inherited over generations.</p>
+            <p class="story-text">Since 1944, craftsmen at Shiomi Uchiwa have been seamlessly inserting delicate radial bamboo ribs piece by piece, layering pristine washi paper to create a fan that is not only functional but a true piece of art. Every breeze it creates tells a story of Kyoto's dedication to quality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW STORY: The Artisan Process -->
+    <section class="section border-bottom">
+      <div class="container container-medium">
+        <div class="text-center" style="margin-bottom: var(--space-xl);">
+          <span class="story-label">The Artisan Process</span>
+          <h2 class="story-title">Generations of Handcrafted Perfection</h2>
+          <p class="story-text" style="max-width: 600px; margin: 0 auto;">Every single Kyo-Uchiwa is born from meticulous manual labor. From the precise splitting of bamboo ribs to the delicate application of washi paper, these techniques have remained beautifully unchanged.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl);">
+          <div>
+            <div class="ratio-4-5" style="margin-bottom: var(--space-md);">
+              <img src="images/uchiwa_history.png" alt="Historical Uchiwa Workshop">
+            </div>
+            <h3 style="font-family: var(--f-heading); font-size: 20px; font-weight: 600; margin-bottom: 4px;">A Legacy Preserved</h3>
+            <p style="font-size: 14px; color: var(--c-gray-500);">The profound atmosphere of traditional Kyoto workshops, where time-honored techniques are faithfully protected and passed down.</p>
+          </div>
+          <div>
+            <div class="ratio-4-5" style="margin-bottom: var(--space-md);">
+              <img src="images/uchiwa_hands.png" alt="Craftsman hands splitting bamboo">
+            </div>
+            <h3 style="font-family: var(--f-heading); font-size: 20px; font-weight: 600; margin-bottom: 4px;">Delicate Handwork</h3>
+            <p style="font-size: 14px; color: var(--c-gray-500);">Artisans spend years mastering the blade, hand-slicing a single piece of bamboo into dozens of hair-thin ribs (hone) that form the fan's exquisite skeleton.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY 2: Modern Life -->
+    <section class="story-section bg-light">
+      <div class="container container-medium">
+        <div class="story-grid reverse">
+          <div class="story-image ratio-4-5">
+            <img src="images/uchiwa_lifestyle.png" alt="Kyo-Uchiwa as Interior Decor">
+          </div>
+          <div class="story-content">
+            <span class="story-label">Modern Living</span>
+            <h2 class="story-title">A Beautiful Addition<br>To Any Space</h2>
+            <p class="story-text">While rooted deeply in traditional Japanese kimono culture, Kyo-Uchiwa are designed for today’s lifestyle. Their minimalist design and exquisite materials make them breathtaking interior accents.</p>
+            <p class="story-text">Whether perfectly placed on a sleek wooden console or gracefully cooling you on a warm summer evening, Kyo-Uchiwa bridges the gap between ancient craft and modern luxury living. It is a stunning, deeply cultural gift to share with friends and loved ones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURATED PRODUCTS -->
+    <section class="section border-bottom" id="collection">
+      <div class="container container-medium">
+        <div class="text-center">
+          <span class="story-label">The Collection</span>
+          <h2 class="section-title">Kyo-Uchiwa Masterpieces</h2>
+          <p class="section-desc">Meticulously crafted fans that transcend utility, acting as profound cultural gifts and stunning interior accents.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- Meigetsu Set -->
+          <div class="product-item">
+            <div class="product-carousel">
+              <div class="carousel-track">
+                <a href="product_uchiwa_meigetsu.html"><img src="images/uchiwa_meigetsu.png" alt="Meigetsu Uchiwa"></a>
+                <a href="product_uchiwa_meigetsu.html"><img src="images/uchiwa_meigetsu_lifestyle1.png" alt="Meigetsu with Incense"></a>
+                <a href="product_uchiwa_meigetsu.html"><img src="images/uchiwa_meigetsu_lifestyle2.png" alt="Meigetsu on display"></a>
+                <a href="product_uchiwa_meigetsu.html"><img src="images/uchiwa_meigetsu_box.png" alt="Meigetsu premium box"></a>
+              </div>
+              <button class="carousel-btn prev" type="button" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" type="button" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+            <div class="product-info text-center" style="padding: 24px 0;">
+              <span class="product-label">Gift Box Edition</span>
+              <h4 class="product-name" style="font-size: 24px; margin-top: 8px;">
+                <a href="product_uchiwa_meigetsu.html">"Meigetsu" Complete Set</a>
+              </h4>
+              <p style="font-size: 14px; color: var(--c-gray-500); margin-bottom: 16px;">An exceptional gift-ready masterpiece featuring a wooden display stand. A true embodiment of Kyoto luxury.</p>
+              <span class="product-price">€210.00</span>
+              <a href="product_uchiwa_meigetsu.html" class="btn btn-outline btn-block">Discover</a>
+            </div>
+          </div>
+
+          <!-- Kinsai Set -->
+          <div class="product-item">
+            <div class="product-carousel">
+              <div class="carousel-track">
+                <a href="product_uchiwa_kinsai.html"><img src="images/uchiwa_kinsai.png" alt="Kinsai Autumn Grasses Uchiwa"></a>
+              </div>
+            </div>
+            <div class="product-info text-center" style="padding: 24px 0;">
+              <span class="product-label">Gold Leaf Artisan</span>
+              <h4 class="product-name" style="font-size: 24px; margin-top: 8px;">
+                <a href="product_uchiwa_kinsai.html">Kinsai Autumn Grasses</a>
+              </h4>
+              <p style="font-size: 14px; color: var(--c-gray-500); margin-bottom: 16px;">A breathtaking large fan featuring the renowned "Kinsai" gold decoration technique.</p>
+              <span class="product-price">€185.00</span>
+              <a href="product_uchiwa_kinsai.html" class="btn btn-outline btn-block">Discover</a>
+            </div>
+          </div>
+          
+          <!-- Juraku Set -->
+          <div class="product-item">
+            <div class="product-carousel">
+              <div class="carousel-track">
+                <a href="product_uchiwa_juraku.html"><img src="images/uchiwa_juraku.png" alt="Juraku Pure Silver Uchiwa"></a>
+                <a href="product_uchiwa_juraku.html"><img src="images/uchiwa_juraku_detail1.png" alt="Juraku detail"></a>
+              </div>
+              <button class="carousel-btn prev" type="button" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn next" type="button" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+            <div class="product-info text-center" style="padding: 24px 0;">
+              <span class="product-label">Pure Silver & Cedar</span>
+              <h4 class="product-name" style="font-size: 24px; margin-top: 8px;">
+                <a href="product_uchiwa_juraku.html">Juraku Pure Silver</a>
+              </h4>
+              <p style="font-size: 14px; color: var(--c-gray-500); margin-bottom: 16px;">An incredibly rare piece utilizing authentic silver leaf set against a rich, dark Kyoto cedar handle.</p>
+              <span class="product-price">€240.00</span>
+              <a href="product_uchiwa_juraku.html" class="btn btn-outline btn-block">Discover</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-title">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="uchiwa.html">Uchiwa</a></li>
+            <li><a href="noren.html">Noren</a></li>
+            <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#shipping">Shipping</a></li>
+            <li><a href="#returns">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Cart</h4>
+          <ul class="footer-links">
+            <li><a href="#cart">View Cart</a></li>
+            <li><a href="#checkout">Checkout</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Japan Best EU. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Carousel
+      const carousels = document.querySelectorAll('.product-carousel');
+      carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        if (!track) return;
+
+        const slides = Array.from(track.children);
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+
+        let currentIndex = 0;
+
+        const updateDots = () => {
+          if (slides.length === 0) return;
+          const slideWidth = slides[0].clientWidth || 1;
+          currentIndex = Math.round(track.scrollLeft / slideWidth);
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        };
+
+        track.addEventListener('scroll', updateDots, { passive: true });
+
+        const goToSlide = (index) => {
+          if (index >= 0 && index < slides.length) {
+            track.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+          }
+        };
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(currentIndex - 1);
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(currentIndex + 1);
+          });
+        }
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(i);
+          });
+        });
+
+        updateDots();
+      });
+
+      // Mobile Menu
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if(toggle) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+

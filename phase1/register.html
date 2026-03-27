@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | Japan Best EU</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html" class="logo-link">
+          <img src="material/logo/Logo_mark.png" alt="Japan Best EU Mark" class="logo-mark">
+          <span class="logo-text">Japan Best EU</span>
+        </a>
+      </div>
+      
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="uchiwa.html">Uchiwa</a></li>
+          <li><a href="noren.html">Noren</a></li>
+          <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="cart.html" class="cart-btn">
+          <span>Cart (0)</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="uchiwa.html">Uchiwa</a></li>
+        <li><a href="noren.html">Noren</a></li>
+        <li><a href="ceramics.html">Japanese Ceramics</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <section class="auth-section">
+      <div class="container">
+        <div class="auth-container">
+          
+          <div class="auth-header">
+            <h1 class="auth-title">Create Account</h1>
+            <p class="auth-desc">Join Japan Best EU to enjoy faster checkout, track your orders, and receive updates on new curated arrivals.</p>
+          </div>
+
+          <form action="#" method="POST" class="auth-form">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="form-label">First Name *</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="form-label">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Password *</label>
+              <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label">Confirm Password *</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+            </div>
+
+            <div style="margin: 40px 0 20px; border-bottom: 1px solid var(--c-gray-200); padding-bottom: 8px;">
+              <h3 style="font-family: var(--f-heading); font-size: 24px;">Shipping & Contact Details</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address1" class="form-label">Address Line 1 *</label>
+              <input type="text" id="address1" name="address1" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address2" class="form-label">Address Line 2 (Optional)</label>
+              <input type="text" id="address2" name="address2" class="form-control">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city" class="form-label">City *</label>
+                <input type="text" id="city" name="city" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="state" class="form-label">State / Province</label>
+                <input type="text" id="state" name="state" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="zip" class="form-label">Postal / Zip Code *</label>
+                <input type="text" id="zip" name="zip" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="country" class="form-label">Country *</label>
+                <select id="country" name="country" class="form-control form-select" required>
+                  <option value="" disabled selected>Select a country</option>
+                  <option value="FR">France</option>
+                  <option value="DE">Germany</option>
+                  <option value="IT">Italy</option>
+                  <option value="ES">Spain</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="JP">Japan</option>
+                  <option value="US">United States</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin: 40px 0 20px; border-bottom: 1px solid var(--c-gray-200); padding-bottom: 8px;">
+              <h3 style="font-family: var(--f-heading); font-size: 24px;">Preferences</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="languagePref" class="form-label">Preferred Communication Language *</label>
+              <select id="languagePref" name="languagePref" class="form-control form-select" required>
+                <option value="en" selected>English (Default)</option>
+                <option value="fr">Français (French)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="es">Español (Spanish)</option>
+                <option value="it">Italiano (Italian)</option>
+              </select>
+              <span class="form-text">All order confirmations, tracking details, and newsletters will be sent in your selected language.</span>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="newsletter" name="newsletter" checked>
+              <label for="newsletter" class="checkbox-label">Subscribe to our newsletter to receive exclusive offers and early access to new arrivals.</label>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms" class="checkbox-label">I agree to the <a href="#terms" style="color: var(--c-black); text-decoration: underline;">Terms & Conditions</a> and <a href="#privacy" style="color: var(--c-black); text-decoration: underline;">Privacy Policy</a>. *</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 16px;">Create Account</button>
+
+          </form>
+
+          <div class="auth-footer">
+            Already have an account? <a href="login.html">Log in here</a>.
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-title">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="uchiwa.html">Uchiwa</a></li>
+            <li><a href="noren.html">Noren</a></li>
+            <li><a href="ceramics.html">Japanese Ceramics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Information</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#shipping">Shipping</a></li>
+            <li><a href="#returns">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Account</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">Log In</a></li>
+            <li><a href="register.html">Create Account</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Japan Best EU. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.mobile-nav');
+      const body = document.body;
+
+      if(toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const isActive = nav.classList.contains('active');
+          if (isActive) {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            body.style.overflow = '';
+          } else {
+            nav.classList.add('active');
+            toggle.classList.add('active');
+            body.style.overflow = 'hidden';
+          }
+        });
+
+        const links = nav.querySelectorAll('a');
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            body.style.overflow = '';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
