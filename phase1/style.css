@@ -453,18 +453,19 @@ img {
   min-height: 600px;
   object-fit: cover;
   opacity: 0;
-  animation: fadeSlide 18s infinite linear;
+  animation: fadeSlide 24s infinite linear;
 }
 
 .hero-slideshow img:nth-child(1) { animation-delay: 0s; }
 .hero-slideshow img:nth-child(2) { animation-delay: 6s; }
 .hero-slideshow img:nth-child(3) { animation-delay: 12s; }
+.hero-slideshow img:nth-child(4) { animation-delay: 18s; }
 
 @keyframes fadeSlide {
   0% { opacity: 0; transform: scale(1.0); }
-  8% { opacity: 1; }
-  33% { opacity: 1; }
-  41% { opacity: 0; }
+  6% { opacity: 1; }
+  25% { opacity: 1; }
+  31% { opacity: 0; }
   100% { opacity: 0; transform: scale(1.05); }
 }
 

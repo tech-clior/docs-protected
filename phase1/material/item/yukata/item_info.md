@@ -1,4 +1,7 @@
+--
 Category TOP: yukata.html
+
+画像:CategoryTop
 
 浴衣の説明
 
@@ -7,16 +10,18 @@ Category TOP: yukata.html
 ブランドのIKSCOLLECTIONの説明
 0000021915.pdf　の内容はコピー可能なので参考にして。
 
+画像:Brand_IKS COLLECTION
+--
 
 Item1: 菊縞ホワイトセット
 
-菊縞オフホワイト（ce_63003121）
+Item1-1:菊縞オフホワイト（ce_63003121）
 https://www.superdelivery.com/p/r/pd_p/13614595/
 
-うちわ　金魚 白 (WH)（ce_53003221_WH）	
+Item1-2:うちわ　金魚 白 (WH)（ce_53003221_WH）	
 https://www.superdelivery.com/p/r/pd_p/4814398/
 
-手ぬぐい（ランダム）	
+Item1-3:手ぬぐい（ランダム）	
 https://www.superdelivery.com/p/r/pd_p/13372263/
 
 
@@ -27,13 +32,13 @@ https://www.superdelivery.com/p/r/pd_p/13372263/
 
 Item2: ツバキ水彩ホワイトセットセット
 
-ツバキ水彩 涼美人 オフホワイト
+Item2-1:ツバキ水彩 涼美人 オフホワイト
 https://www.superdelivery.com/p/r/pd_p/13616529/
 
-うちわ スズラン 花柄
+Item2-2:うちわ スズラン 花柄
 https://www.superdelivery.com/p/r/pd_p/6109167/
 
-手ぬぐい（ランダム）	
+Item2-3:手ぬぐい（ランダム）	
 https://www.superdelivery.com/p/r/pd_p/13372263/
 
 
@@ -44,13 +49,13 @@ https://www.superdelivery.com/p/r/pd_p/13372263/
 
 Item3: 菊菱水彩ホワイトセット
 
-菊菱水彩ホワイト
+Item3-1:菊菱水彩ホワイト
 https://www.superdelivery.com/p/r/pd_p/13618239/
 
-うちわ 鳩ぽっぽ 水色
+Item3-2:うちわ 鳩ぽっぽ 水色
 https://www.superdelivery.com/p/r/pd_p/4814414/
 
-手ぬぐい（ランダム）	
+Item3-3:手ぬぐい（ランダム）	
 https://www.superdelivery.com/p/r/pd_p/13372263/
 
 
@@ -60,13 +65,13 @@ https://www.superdelivery.com/p/r/pd_p/13372263/
 
 Item4: 喜 セット
 
-喜No.051蓮 （ce_64107051）
+Item4-1:喜No.051蓮 （ce_64107051）
 https://www.superdelivery.com/p/r/pd_p/13526173/
 
-手拭い 菊 花柄 赤 (RE)
+Item4-2:手拭い 菊 花柄 赤 (RE)
 https://www.superdelivery.com/p/r/pd_p/4814395/
 
-手ぬぐい（ランダム）	
+Item4-3:手ぬぐい（ランダム）	
 https://www.superdelivery.com/p/r/pd_p/13372263/
 
 

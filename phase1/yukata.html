@@ -107,6 +107,55 @@
       transform: translateY(-8px);
     }
 
+    /* Hero Carousel Styling */
+    .hero-carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .hero-carousel-track {
+      display: flex;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-carousel-track img {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative !important;
+      flex: 0 0 100%;
+    }
+
+    .hero-carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .hero-carousel-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-carousel-dots .dot.active {
+      background: #fff;
+      transform: scale(1.2);
+    }
+
     .product-carousel-container {
       position: relative;
       width: 100%;
@@ -320,8 +369,19 @@
     <section class="story-section">
       <div class="container">
         <div class="story-grid">
-          <div class="story-img ratio-4-5">
-            <img src="https://c.superdelivery.com/ip/n/sa/600/600/www.superdelivery.com/product_image/013/614/595/13614595_1000.jpg" alt="Yukata on a modern woman" loading="lazy">
+          <div class="story-img ratio-4-5 hero-carousel-container">
+            <div class="hero-carousel-track">
+              <img src="images/yukata/category/01.png" alt="Yukata on a modern woman" loading="lazy">
+              <img src="images/yukata/category/02.png" alt="Yukata detail - Floral pattern" loading="lazy">
+              <img src="images/yukata/category/03.png" alt="Yukata styling - Traditional look" loading="lazy">
+              <img src="images/yukata/category/04.png" alt="Yukata reverse side - Craftsmanship" loading="lazy">
+            </div>
+            <div class="hero-carousel-dots">
+              <span class="dot active" onclick="jumpToSlide(0)"></span>
+              <span class="dot" onclick="jumpToSlide(1)"></span>
+              <span class="dot" onclick="jumpToSlide(2)"></span>
+              <span class="dot" onclick="jumpToSlide(3)"></span>
+            </div>
           </div>
           <div class="story-content">
             <h2 class="story-title">A New Summer Standard</h2>
@@ -341,7 +401,7 @@
       <div class="container">
         <div class="story-grid reverse">
           <div class="story-img ratio-4-5">
-            <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/616/529/13616529_s_1.jpg" alt="Elegant Yukata Patterns" loading="lazy">
+            <img src="images/yukata/brand/IKS COLLECTION Vision.png" alt="Elegant Yukata Patterns" loading="lazy">
           </div>
           <div class="story-content">
             <h2 class="story-title">IKS COLLECTION & Ryobijin</h2>
@@ -370,8 +430,8 @@
           <article class="product-card">
             <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
               <div class="product-carousel-track">
-                <img src="https://c.superdelivery.com/ip/n/sa/600/600/www.superdelivery.com/product_image/013/614/595/13614595_1000.jpg" alt="Kiku-Shima Yukata Set" loading="lazy">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/004/814/398/4814398_s_1002.jpg" alt="White Goldfish Uchiwa" loading="lazy">
+                <img src="images/yukata/item1/01_1000_org.png" alt="Kiku-Shima Yukata Set" loading="lazy">
+                <img src="images/yukata/item1/02_1001.png" alt="White Goldfish Uchiwa" loading="lazy">
               </div>
               <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -396,8 +456,8 @@
           <article class="product-card">
             <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
               <div class="product-carousel-track">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/616/529/13616529_s_1.jpg" alt="Tsubaki Set" loading="lazy">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/006/109/167/6109167_s_1003.jpg" alt="Lily of the Valley Uchiwa" loading="lazy">
+                <img src="images/yukata/item2/01.png" alt="Tsubaki Set" loading="lazy">
+                <img src="images/yukata/item2/02.png" alt="Lily of the Valley Uchiwa" loading="lazy">
               </div>
               <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -411,7 +471,7 @@
               </div>
             </div>
             <div class="product-info">
-              <h3 class="product-name">Tsubaki White Set</h3>
+              <h3 class="product-name">Tsubaki Watercolor White Set</h3>
               <p class="product-desc">Bold watercolor camellias on a dry-touch polyester off-white base. Includes Lily of the Valley Uchiwa.</p>
               <div class="product-price">€430.00</div>
               <a href="product_yukata_item2.html"><button class="btn-buy" aria-label="Purchase Tsubaki Set">View Details</button></a>
@@ -422,8 +482,8 @@
           <article class="product-card">
             <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
               <div class="product-carousel-track">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/618/239/13618239_s_1.jpg" alt="Kiku-Bishi Set" loading="lazy">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/004/814/414/4814414_s_1004.jpg" alt="Dove Uchiwa" loading="lazy">
+                <img src="images/yukata/item3/01.png" alt="Kiku-Bishi Set" loading="lazy">
+                <img src="images/yukata/item3/02.png" alt="Dove Uchiwa" loading="lazy">
               </div>
               <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -437,7 +497,7 @@
               </div>
             </div>
             <div class="product-info">
-              <h3 class="product-name">Kiku-Bishi White Set</h3>
+              <h3 class="product-name">Kiku-Bishi Watercolor White Set</h3>
               <p class="product-desc">Delicate watercolor diamond chrysanthemums. Matched elegantly with a Light Blue Dove Uchiwa.</p>
               <div class="product-price">€430.00</div>
               <a href="product_yukata_item3.html"><button class="btn-buy" aria-label="Purchase Kiku-Bishi Set">View Details</button></a>
@@ -448,8 +508,8 @@
           <article class="product-card">
             <div class="product-carousel-container" onmouseenter="showCarouselControls(this)" onmouseleave="hideCarouselControls(this)">
               <div class="product-carousel-track">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/013/526/173/13526173_s_1.jpg" alt="Yorokobi Set" loading="lazy">
-                <img src="https://c.superdelivery.com/ip/n/sa/1200/630/www.superdelivery.com/product_image/004/814/395/4814395_s_1005.jpg" alt="Red Chrysanthemum Tenugui" loading="lazy">
+                <img src="images/yukata/item4/01.png" alt="Yorokobi Set" loading="lazy">
+                <img src="images/yukata/item4/02.png" alt="Red Chrysanthemum Tenugui" loading="lazy">
               </div>
               <button class="carousel-btn prev" onclick="scrollCarousel(this, -1, event)" aria-label="Previous image">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -463,7 +523,7 @@
               </div>
             </div>
             <div class="product-info">
-              <h3 class="product-name">Yorokobi Lotus Set</h3>
+              <h3 class="product-name">Yorokobi Set</h3>
               <p class="product-desc">Joyful lotus design paired with a Red Chrysanthemum Tenugui towel for an immersive summer experience.</p>
               <div class="product-price">€480.00</div>
               <a href="product_yukata_item4.html"><button class="btn-buy" aria-label="Purchase Yorokobi Set">View Details</button></a>
@@ -578,6 +638,31 @@
       const itemWidth = track.clientWidth;
       track.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
     }
+
+    // Hero Slideshow Logic
+    let currentHeroSlide = 0;
+    const totalHeroSlides = 4;
+    const heroTrack = document.querySelector('.hero-carousel-track');
+    const heroDots = document.querySelectorAll('.hero-carousel-dots .dot');
+
+    function updateHeroCarousel() {
+      if (heroTrack) {
+        heroTrack.style.transform = `translateX(-${currentHeroSlide * 100}%)`;
+        heroDots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentHeroSlide);
+        });
+      }
+    }
+
+    function jumpToSlide(index) {
+      currentHeroSlide = index;
+      updateHeroCarousel();
+    }
+
+    setInterval(() => {
+      currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+      updateHeroCarousel();
+    }, 5000); // 5 seconds interval
   </script>
 </body>
 </html>
